@@ -5,7 +5,6 @@ var server = express();
 //server.get('/', function(req, res){
 //	console.log('有get')
 //})
-
 server.use('/', function(req, res){
 	console.log('看源码控制台')
 })
