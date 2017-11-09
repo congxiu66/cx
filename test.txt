@@ -1,2 +1,3 @@
 Git remote add origin https://github.com/congxiu66/cx.git.
 Git push -u origin master.
+Git is free solfware.
