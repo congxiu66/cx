@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>symbol(值数据类型，唯一的)</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	studyES6()
+	//Symbol 是es6新增的一种值类型数据，表示一种绝不重复的值
+	function studyES6(){
+		let a = Symbol(3);
+		let b = Symbol(3);
+		alert( a == b);
+		alert(a.toString())
+	}
+</script>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Generator 函数结构</title>
+		<script src="jQuery.js"></script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<button >你好</button>
+		<span>啦啦啦啦</span>
+	</body>
+</html>
+<script>
+	$('button').on('click',function(){
+		$('span').css('text-decoration','underline')
+	})
+//	console.log("<span style='text-decoration: underline'>加上下划线</span>")
+/*	studyEs6()
+	function studyEs6(){
+		function *yuanku(){
+			//先执行括号里的表达式
+			console.log("aaa  "+(yield"原库网"));
+			console.log('bbb:'+(yield "北京海淀"));
+//			yield "原库网";
+//			yield "北京海淀";
+			yield "www";
+			return 'end';
+		}
+		let y = yuanku();
+		console.log(y.next());//{value: "原库网", done: false}
+		console.log(y.next("我是注入AAA"));//aaa  我是注入AAA  {value: "北京海淀", done: false}
+		console.log(y.next("我是BBB"));//bbb:我是BBB {value: "www", done: false}
+		console.log(y.next());//{value: "end", done: false}
+	}*/
+	
+	//向next中传值，此值作为上一个yield的返回值(较难理解)
+/*	function *yuanku(num){
+		let x = 2*(yield num);
+		console.log('x='+x);
+		let y = yield x*3;
+		console.log('y='+y);
+		console.log(x,y);
+	}
+	
+	var g = yuanku(5);
+	console.log(g.next());//{value: 5, done: false} 
+	
+	console.log(g.next(3));// x=6 {value: 18, done: false}  y=3    6 3
+	
+	console.log(g.next(3));// 6*/
+	
+	/*var func = function(time){
+		//异步
+		setTimeout(function(){
+			console.log(time, "on");
+		},time);
+		
+	};
+	var gen = function *(){
+		var f1 = yield func(3000);
+		console.log('f1:',f1);
+		var f2 = yield func(1000);
+		console.log('f2:',f2);
+	};
+	
+	let y = gen();
+	y.next();
+	y.next();
+	y.next();*/
+	
+	let y;
+	var func = function(time){
+		//异步
+		setTimeout(function(){
+			console.log(time, "on");
+			y.next(time);
+		},time);
+		
+	};
+	var gen = function *(){
+		var f1 = yield func(3000);
+		console.log('f1:',f1);
+		var f2 = yield func(1000);
+		console.log('f2:',f2);
+	};
+	
+	y = gen();
+	y.next();
+</script>

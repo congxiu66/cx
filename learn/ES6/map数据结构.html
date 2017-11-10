@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>map数据结构</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	studyES6()
+	function studyES6(){
+		/*let objKey1 = {};//同let obj = new Object();
+		let objKey2 = {};
+		let obj = new Object();
+		obj[objKey1] = 33;
+		obj[objKey2] = 55;
+		for(let key in obj){
+			console.log(key)
+		}*/
+		
+		/*var mapData = new Map();
+		var objKey = {p:'antzone'};
+		var objkey1 = {}
+		mapData.set(objkey1,"333");//添加新元素
+		console.log(mapData.get(objkey1));//获取
+		console.log(mapData.has(objkey1));//判断是否含有
+		console.log(mapData.delete(objkey1));//删除键
+		mapData.clear();//清空*/
+		
+		//map可以是数组
+		var mapData = new Map([["webName",'资源库'],["url","www.yuankuwang.com"]]);
+		var objkey1 = {};
+		var objkey2 = {};
+		mapData.set(objkey1,"333");//添加新元素
+		mapData.set(objkey2,"666");//添加新元素
+		mapData['aa'] = "aaaa"
+		console.log(mapData.get('webName'));
+		//遍历
+		/*mapData.forEach(function(value,key){
+			console.log(key+'='+value);
+		})*/
+		
+		//转成数组
+		/*var arr = [...mapData];
+		console.log(arr)*/
+		
+		//elem 是一个键值对
+		/*for(let elem of mapData){
+			console.log(elem)
+		}*/
+		
+		//--------其他函数-----------
+		var keylterator = mapData.keys();//键遍历器
+		console.log(keylterator);
+		console.log('遍历器取值  '+keylterator.next().value);//遍历器的用法
+		console.log('遍历器取值  '+keylterator.next().value);
+		
+		
+		var valuelterator = mapData.values();//值遍历器
+		console.log(valuelterator);
+		console.log('值历器取值  '+valuelterator.next().value);//值遍历器的用法
+		
+		var size = mapData.size;//键值对数量
+		console.log(size);
+		
+		for(let key in mapData){
+			console.log(key)
+		}
+	}
+</script>

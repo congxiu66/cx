@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Decorator修饰器(没调试成功)</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	studyEs6()
+	function studyEs6(){
+		function choseCourse(target){
+			console.log('调用')
+			target.course = "物理";
+		}
+		
+		function setStudy(target){
+			target.study = function(){
+				console.log('学习'+target.course)
+			}
+		}
+		@setStudy;
+		class Student{}
+		Student.study();
+			
+		
+		
+	}
+</script>

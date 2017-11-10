@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>let const 命令</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	studyEs6();
+	function studyEs6(){
+		// let 1、局部变量只在代码块中起作用   2、不予许在同一作用域重复声明变量  3、跟全局变量一起声明
+		/*{
+			let a = 0;
+			alert(a)
+		}*/
+		
+		/*{
+			let a = 0;
+			let a = 2;
+			alert(a)
+		}*/
+		
+		/*var a = 4; 
+		{
+			let a = 3;
+		}
+		alert(a)//4*/
+		
+		/*let a = 3;
+		{
+			a = 5;
+		}
+		alert(a)//5*/
+		
+		//const 常量
+		const  a = 4
+		{
+			a = 5;
+		}
+		alert(a)
+	}
+	
+</script>

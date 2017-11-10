@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Proxy代理</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	class Register{}
+	let r = new Register()
+//	r.id = 3;
+//	r.name  ='张三';
+//	console.log(r.name);
+	
+	/*let p = new Proxy(r,{
+		get:function(target,key){
+			console.log('调用get方法');
+			return target[key];
+		},
+		set: function(target,key,value){
+			console.log('调用set方法');
+			console.log('key'+key)
+			console.log('value'+value);
+			return Reflect.set(target,key,value);
+		}
+	})
+	
+	p.id = 3;
+	p.name = "张三";*/
+	
+	
+	let p = new Proxy(r,{
+		get:function(target,key){
+			//console.log('调用get方法');
+			return target[key];
+		},
+		set: function(target,key,value){
+			if(key == 'id'){
+				if(value == 15){
+					target['prefix'] = "，此人是逃犯"
+				}else{
+					target['prefix'] = "";
+				}
+			}
+				
+			if(key == 'name'){
+				value = value + target['prefix'];
+			}
+			target[key] = value;
+			return Reflect.set(target,key,value);
+		}
+	})
+	
+	p.id = 13;
+	p.name = "张三";
+	console.log(p.name);
+	p.id = 15;
+	p.name = "李四";
+	console.log(p.name);
+</script>

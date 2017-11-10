@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>箭头函数</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//-----------无参数------------
+//	function cheng(){
+//		console.log('hello')
+//	}
+//	cheng();
+//	var cheng = function(){
+//		console.log('hello')
+//	}
+	/*let cheng = ()=> console.log("hello")
+    cheng()*/
+   
+   //-----------单参数------------
+// cheng();
+// function cheng(a = 3){
+// 	console.log(a*a);
+// }
+   
+   /*let cheng = (a=4)=>a*a;
+   console.log(cheng(5))*/
+  
+  //------多参数--------
+//function add(a,b){
+//	return a+b;
+//}
+  
+ 	/*let add = (a,b) =>{
+  		console.log(a+b);
+  	};
+ 	add(3,9)*/
+ 	
+ 	
+ 	//------this指针------
+ 	/*var obj = {
+ 		x:121,
+ 		func:function(){
+ 			console.log(this.x)
+ 		},
+ 		test:function(){
+ 			setTimeout(function(){
+ 				alert(this);//this指针转为全局
+ 				this.func();
+ 				
+ 			},1000)
+ 		}
+ 	}
+ 	
+ 	obj.test();*///报错：this.func is not a function
+ 	
+ 	//箭头函数的this始终指向函数定义时的this，而非执行时
+ 	var o = {
+ 		x:1,
+ 		func:function(){
+ 			console.log(this.x)
+ 		},
+ 		test:function(){
+ 			setTimeout(() =>{
+ 				alert(this)
+ 				this.func()
+ 			},100)
+ 		}
+ 	}
+ 	o.test();//这回this就指向o
+</script>

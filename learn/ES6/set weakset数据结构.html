@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>set weakset数据结构</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//set是es6新增的数据结构， 数据结构的成员都是唯一的
+	//var set = new Set([1,2,3,2,2,5,5])
+	
+	var set = new Set();
+	/*[1,2,5,5,9,4,45,1,2].map(function(elem){
+		//循环add添加赋值
+		set.add(elem);
+		//console.log(elem)//有重复
+	})*/
+	
+	//for...of遍历
+	/*for(var elem of set){
+		console.log(elem)//无重复
+	}*/
+	
+	//-----------扩展运算符----------
+	/*console.log('set='+set);
+	set.delete(2);//删除
+	set.clear();//清空
+	var arr = [...set];
+	console.log('arr='+arr);
+	for(var elem of arr){
+		console.log(elem)//无重复
+	}*/
+	var arr1 = [0, 1, 4];
+	var arr2 = [2, 4, 5];
+	arr1.push(...arr2);
+	console.log(arr1)
+	
+	//------------遍历键值---------------
+	/*set.forEach(function(value, key){
+		console.log(value +'='+key)
+	})*/
+	
+	//----------判断set中是否有--------
+	//console.log(set.has(8))
+	
+	//----遍历值-------
+	/*let setlter = set.values();
+	for (let val of setlter){
+		console.log(val)
+	}*/
+	
+	//----数量--------
+	//console.log(set.size)
+	
+	//---map和filter也可以用于set中-------
+	/*var setArr = [1,2,2,5,6,8,4].map(function(elem){
+		set.add(elem)
+		return elem*2;
+	})
+	console.log(setArr)
+	
+	var fiter = [1,2,4,7,7,9].filter(function(elem){
+		if(elem>3){
+			return true;
+		}
+		return false;
+	})
+	console.log(fiter)*/
+	
+	let a = new Set([1,2,3]);
+	let b = new Set([4,3,2]);
+	
+	//--求并集
+	/*let union = new Set([...a,...b]);
+	console.log([...union])*/
+	
+	//---求交集
+	/*let intersect = [...a].filter(function(elem){
+		return b.has(elem);
+	})
+	console.log(intersect)*/
+	
+	//求差集
+	let difference = [...a].filter(function(elem){
+		return !b.has(elem)
+	})
+	console.log(difference)
+	
+	/*studyES6()
+	function studyES6(){
+		var weakset = new WeakSet();
+		let num = new Number(5);
+		//weakset.add(5)//保存  weakset写一个对象的形式
+		let aObj = new String('你好');
+		let  cObj = {a:'sss'}
+		weakset.add(cObj);
+		//weakset.delete(cObj)
+		cObj = null;
+		console.log(weakset.has(cObj))
+	}*/
+</script>

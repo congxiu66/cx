@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Iterator遍历器</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	studyES6()
+	function studyES6(){
+		let arr = ["资源网",4,'www','北京大学'];
+		let it = arr[Symbol.iterator]();
+		//没调用一次next()方法都会返回一个对象
+		/*console.log(it.next());
+		console.log(it.next());
+		console.log(it.next());
+		console.log(it.next());
+		console.log(it.next());*/
+		//循环遍历方法一
+		/*for(;;){
+			let elem = it.next();
+			
+			if(elem.done){
+				break;
+			}
+			console.log(elem.value);
+		}*/
+		//循环遍历方法二
+		/*arr.forEach(function(value,key){
+			console.log(key+'='+value);
+		})*/
+		//循环遍历方法三 ------------for...of------
+		/*for(let elem of arr){
+			console.log(elem);
+		}*/
+		
+		//console.log([...arr])
+	}
+</script>

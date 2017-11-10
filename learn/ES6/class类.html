@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>class类</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*function A(id,name){
+		this.id = id;
+		this.name = name;
+		this.myfun = function(){
+			alert(this.name)
+		}
+	}
+	let a = new A(22,'小王');
+	a.myfun();*/
+	
+	//类
+	/*class Person{
+		//构造方法
+		constructor(name, age ,job){
+			this.name = name;
+			this.age = age;
+			this.job = job;
+			this.friends = ['Shelby','Court'];
+		}
+		sayname(){
+			alert(this.name);
+		}
+		sayname(name){
+			this.name = name
+			alert(this.name)
+		}
+	}
+	
+	let person = new Person('张三',26,'司机');
+	person.sayname('李四');*/
+	
+	/* 静态方法 */
+	/*class Point{
+		constructor(x,y){
+			this.x = x;
+			this.y = y;
+		}
+		
+		static distance(a,b){
+			const dx = a.x - b.x;
+			const dy = a.y -b.y;
+			return Math.sqrt(dx*dx + dy*dy);
+		}
+	}
+	Point.len = 99;
+	
+	let p1 = new Point(3,4);
+	let p2 = new Point(18,24);
+	console.log(Point.len)
+	console.log(Point.distance(p1,p2))*/
+	
+	/*studyEs6();
+	function studyEs6(){
+		class Cache {
+			//构造方法
+			constructor(){
+				this.id = '123';
+				this.name='王五';
+			}
+			static getSingleTon(){
+				if(!Cache.thisa){
+					console.log('创建');
+					Cache.thisa = new Cache();
+				}
+				return Cache.thisa;
+			}
+			
+		}
+		let c1 = Cache.getSingleTon();
+		c1.name = 'aa'
+		let c2 = Cache.getSingleTon();
+		let c3 = Cache.getSingleTon();
+		alert(c3.name)
+	}*/
+	
+	/* 继承 */
+	class Animal{
+		constructor(name){
+			this.name = name;
+		}
+		speak(){
+			console.log(this.name + ' makes a noise ')
+		}
+	}
+	
+	class Dog extends Animal{
+		speak(){
+			console.log(this.name+' barks ')
+		}
+	}
+	
+	let dog = new Dog('狗');
+	dog.speak();
+	
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>课程介绍</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//ES5
+	var arr = [9,9,12,45,7];
+	var len = arr.length;
+	var sum = 0;
+	for(var i=0; i<len; i++){
+		sum+=arr[i];
+	}
+	console.log('sum='+sum);
+	
+	//ES6
+	var sum01 = 0;
+	[9,9,12,45,7].map(function(elem){
+		console.log(elem)
+		sum01 += elem;
+	})
+	console.log('sum='+sum01);
+</script>

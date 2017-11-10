@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/* Promise是一个对象，从他可以获取异步操作的消息  */
+	let param;
+	function p1(){
+		return new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("aaaa");
+				param = "我是123"
+				//resolve(123);
+				reject(123)
+			},3000)
+		})
+	}
+	function p2(){
+		return new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("bbbb");
+				resolve(345);
+			},2000)
+		})
+	}
+	function p3(){
+		return new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("vvvv")
+				console.log("收到"+param)
+				param = "我是567"
+				resolve(567);
+			},1000)
+		})
+	}
+	function p4(){
+		return new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("ghjghj")
+				console.log("我收到"+param)
+			},500)
+		})
+	}
+	p1().then(function(data){
+		console.log('收到参数：'+data)
+	}).catch(function(err){
+		console.log("出错："+err);
+		if(err == 123){
+			p2().then(p3).then(p4)
+		}
+	});
+	
+	//是resolve状态的时候可以执行
+	//p1().then(p2).then(p3)
+</script>

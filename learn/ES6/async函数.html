@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>async函数</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//函数声明要写正确 不然不执行
+	function sleep(time){
+		return new Promise(function(resolve, reject){
+			console.log('执行');
+			setTimeout(function(){
+				resolve('ok');
+				//reject('出错')
+			},time);
+		})
+	}
+	
+	let 一到十 = [1,2,3,4,5,6,7,8,9,10];
+	start();
+	async function start(){
+		try{
+			console.log('start');
+			//await 不能嵌套函数
+			/*一到十.forEach(function(v){
+				console.log('当前是第'+v+'次等待');
+				await sleep(1000);//错误！！await只能在async函数中运行
+			})*/
+			
+			for(var i of 一到十){//正确
+			//for(let i=0; i<10; i++){//正确
+				await sleep(1000)
+				console.log('当前是第'+i+'次等待')
+			}
+			console.log("end")
+//			let rs = await sleep(3000);
+//			console.log('end  '+rs)
+		}catch(err){
+			console.log(err);
+		}
+		
+	}
+</script>

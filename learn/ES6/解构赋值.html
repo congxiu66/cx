@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>解构赋值</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//ES5
+	/*var arr = ["aaa",'bbb','ccc'];
+	var a= arr[1];
+	var b= arr[2]*/
+	
+	//ES6
+//	let [a, b, c, d] = ["aa", "bb",  "cc", '99'];
+//	alert(d);
+	
+	/*let [a, b, , d] = ["aa", "bb",  "cc", '99'];
+	alert(d);*/
+	
+	/*let [a, b,c, d] = ["aa", "bb",  "[33,44]", '99'];
+	console.log(c)*/
+	
+	let obj = new Object();
+	obj.uid = 111;
+	obj.uname = '张三';
+	obj.arr = ['aa','bb'];
+	/*let {uname:name, uid:id} = obj;
+	console.log(name)*/
+	
+	/*let uid,uname;
+	({uname,uid} = obj);
+	console.log(uid)*/
+	
+	//数组嵌套
+	/*let uid,uname,arr,a,b;
+	({arr:[a,b,c='ccc']} = obj);
+	alert(c)*/
+	
+	/*let [a,b,c,d] = '倚天屠龙'
+	alert(c)*/
+	
+	//函数参数的解构
+	analysis(obj)
+	function analysis({uid,uname}){
+		console.log(uid);
+		console.log(uname);
+	}
+
+	
+</script>
