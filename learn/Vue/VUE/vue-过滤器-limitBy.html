@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue过滤器</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<ul id = "box">
+			<!--val in arr | limitBy 3 arr.length-2 倒数后两条数据-->
+			<!--val in arr | limitBy 3 1 从第一个数据起要三个数据-->
+			<li v-for="val in arr | limitBy 1 4" >
+				{{val}}
+			</li>
+		</ul>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		data: {
+			arr: [1,2,3,4,5]
+		},
+		methods: {
+			
+		}
+	}).$mount("#box")
+</script>

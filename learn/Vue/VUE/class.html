@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>绑定样式:class和:style</title>
+		<script src="js/vue2.0.js"></script>
+		<style type="text/css">
+			.a {
+				font-size: 18px;
+			}
+			.b {
+				background: #1B6D85;
+			}
+			.c {
+				color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!---------------动态绑定------------->
+		<!--:class绑定的样式和class绑定的样式不冲突-->
+		<!--<div id="app" :class="{a:flag,b:true}">你好帅</div>-->
+		<!--<div id="app" :class="[class1, class2, 'c']">你好帅</div>-->
+		<!--<div id="app" :class="[class1, class2, '{c:false}']">你好帅
+			<div v-for="(item, index) in 10" :class="{c: index%2}">
+				{{ item }}
+			</div>
+		</div>	-->
+		
+		
+		<!--对象和数组两种方式-->
+		<div id="app">
+			<div :style="{fontSize:'30px', color:'pink',background:'blue'}">我很帅</div>
+			<div :style="[sty1, sty2, {textIndent:'30px'}]">你要加油哦~</div>
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	//第一种是对象，第二种是数组
+	var vm = new Vue({
+		el: '#app',
+		data: {
+			flag: true,
+			class1:'a',
+			class2:'b',
+			sty1: {backGround:'red',fontSize:'30px'},
+			sty2: {fontWeight:'bold'}
+		}
+	})
+</script>

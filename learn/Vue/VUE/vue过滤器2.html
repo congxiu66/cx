@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue 过滤器</title>
+		<script src="js/vue2.0.js"></script>
+	</head>
+	<body>
+		<div id="app1">
+			{{ 'hello' | my }}
+		</div>
+		<div id="app2">
+			{{ 'hello' | my }}
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	/*Vue filter('my',function(data){
+		return 'jw'+data;
+	});*/
+	Vue.filter('my',(data)=>{ //全局过滤器，过滤器要放在页面顶部
+		return 'jw'+data;
+	});
+	new Vue({
+		el: '#app1',
+		filters: {
+			/*my(data) {
+				return 'jw'+data;
+			}*/
+		}
+	})
+	new Vue({
+		el: '#app2',
+		
+	})
+</script>

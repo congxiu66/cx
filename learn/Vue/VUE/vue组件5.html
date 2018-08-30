@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue组件4</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<my-aaa></my-aaa>
+		</div>
+		<template id="aaa">
+			<h1>标题1</h1>
+			<ul>
+				<li v-for="val in arr">{{val}}</li>
+			</ul>
+		</template>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: "#box",
+		components: {
+			'my-aaa': {
+				data(){
+					return{
+						msg: 'welcome vue' ,
+						arr: ['arr','banana','orange']
+					}
+				},
+				methods: {
+					change(){
+						this.msg ='change';
+					}
+				},
+				template: '#aaa'
+			}
+		}
+	})
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue过滤器</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id='box' >
+			<!--debounce 延迟执行 配合事件 vue提供的过滤器-->
+			<input type="text" @keyup="show | debounce 2000" />
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		data: {
+			show: function(){
+				alert(1)
+			}
+		},
+		methods: {
+			add: function(){
+				this.arr.push("tomato")
+			}
+		}
+	}).$mount("#box")
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue组件2</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<child message = "hello"></child>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	/*prop是单向绑定  是父组件用来传递数据的一个自定义属性。父组件的数据需要通过 props 把数据传给子组件，子组件需要显式地用 props 选项声明 "prop"：*/
+	//注册
+	Vue.component('child',{
+		//声明props
+		props: ['message'],
+		template: '<span>{{message}}</span>'
+	})
+	//创建根实例
+	new Vue({
+		el: "#app"
+	})
+	
+</script>

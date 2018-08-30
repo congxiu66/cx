@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue2.0组件定义方式</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<template id="aaa">
+			<div><!--当有片段代码时，组件中的模板必须有根元素包着 -->
+				<h1>啦啦啦</h1>
+				<strong>我是组件</strong>
+			</div>
+		</template>
+		<div id="box">
+			<bbb></bbb>
+		</div>
+	</body>
+</html>
+<script>
+	/*定义的组件往前放*/
+	var Home = {
+		template: '#aaa'
+	};
+	var vm = new Vue({
+		el: "#box",
+		data:{
+			msg: 'welcome to vue.js2.0'
+		},
+		components: {
+			'bbb': Home
+		}
+	})
+	
+</script>

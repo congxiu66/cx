@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue2.0父子组件2</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<!--组件标签-->
+			<Child_one :msg="a"></Child_one>
+		</div>
+		<!--组件内容-->
+		<template id="child">
+			<div>
+				<h3>我是子组件</h3>
+				<input type="button" name="" id="" value="按钮" />
+				{{msg}}
+			</div>
+		</template>
+	</body>
+</html>
+<script type="text/javascript"> 
+	var vm = new Vue({
+		el: '#box',
+		data: {
+			a: '我是父组件的数据'
+		},
+		components: {
+			/*组件标签*/
+			Child_one: {
+				props: ['msg'],
+				template: '#child'
+			}
+		}
+		
+	})
+</script>

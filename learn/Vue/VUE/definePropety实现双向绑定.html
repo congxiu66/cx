@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用Object.defineProperty实现双向绑定</title>
+	</head>
+	<body>
+		<input type="text" id="input"/>  
+		
+	</body>
+</html>
+
+<script type="text/javascript">
+	let obj = {};
+	let temp = {};
+	Object.defineProperty(obj,'name',{
+		get() { // 取obj的name属性会触发
+			return temp["name"];
+		},
+		set(val){ // 给obj赋值会触发get方法
+			temp["name"] = val;
+			input.value = val;
+		}
+	})
+	input.value = obj.name; // 页面一加载是 会调用get方法
+	input.addEventListener('input', function() { // 等待输入框的变化
+		obj.name = this.value;// 当值变化时会调用set方法
+	});
+</script>

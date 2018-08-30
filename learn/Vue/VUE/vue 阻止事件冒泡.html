@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue 阻止事件冒泡</title>
+		<script src="js/vue2.0.js"></script>
+	</head>
+	<body>
+		<!--事件.capture 捕获    从上到下-->
+		<!--<div id="app" @click.capture="parent">
+			parent
+			<div @click.capture="child">
+				child
+				<div @click="grandson">grandson</div>
+			</div>
+		</div>-->
+		<!--事件.stop 阻止事件传播    -->
+		<!--<div id="app" @click.capture.stop="parent">parent
+			<div @click.stop="child">child
+				<div @click="grandson">grandson</div>
+			</div>
+		</div>-->
+		<!--事件.once 只执行一次   -->
+		<!--<div id="app" @click="parent">parent
+			<div @click.once="child">child
+				<div @click="grandson">grandson</div>
+			</div>-->
+			<!--事件.prevent  阻止默认事件  -->
+			<!--<a href="http://baidu.com" @click.prevent="parent">去百度</a>
+		</div>-->
+		<div id="app" @click="parent">parent
+			<div @click.stop="child">child
+				<div @click="grandson">grandson</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	var vm = new Vue({
+		el: '#app',
+		methods: {
+			parent: function(){
+				alert('parent')
+			},
+			child: function(){
+				alert('child')
+			},
+			grandson: function(e){
+				alert('grandson');
+				//阻止事件冒泡 从下到上
+				//e.cancelBubble=true;
+				//e.stopPropagation();
+			}
+		}
+	})
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue路由</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/vue-router.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<a v-link = "{path: '/home'}">主页</a>
+				</li>
+				<li>
+					<a v-link = "{path: 'news'}">新闻</a>
+				</li>
+			</ul>
+			<router-view></router-view>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	//1.准备一个根组件
+	var App = Vue.extend();
+	
+	//2.home newsd的组件都准备 template模板
+	var Home = Vue.extend({
+		template:'<h3>我是主页</h3>'
+	});
+	var News = Vue.extend({
+		template: '<h4>我是新闻</h4>'
+	});
+	
+	//3.准备路由
+	var router = new VueRouter();
+	
+	//4.关联
+	router.map({
+		'home':{
+			component:Home
+		},
+		'new':{
+			component:News
+		}
+	});
+	
+	//5.启动路由
+	router.start(App,'#box');
+var getid
+</script>
+

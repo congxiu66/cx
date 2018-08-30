@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue2.0路由</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+		<script type="text/javascript" src="js/vue-router.js" ></script>
+		<style type="text/css">
+			.router-link-active{
+				font-size:18px;
+				color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div>
+				<!--组件-->
+				<router-link to="/home">主页</router-link>
+				<router-link to="/news">新闻</router-link>
+			</div>
+			<div>
+				<router-view></router-view>
+				
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	
+	/*组件*/
+	var Home = {
+		template: '<h3>我是主页</h3>'
+	}
+	var News = {
+		template: '<h3>我是新闻</h3>'
+	}
+	/*配置路由 routes 变量名不可以写错*/
+	const routes = [
+		{ path:'/home', component: Home },
+		{ path:'/news', component: News },
+		/*重定向*/
+		{ path:'*', redirect: 'home'}
+	];
+	/*配置路由实例*/
+	const router = new VueRouter({
+		/*路由名字*/
+		routes
+	})
+	/*最后挂在vue上*/
+	var vm = new Vue({
+		router,
+		el: '#box'
+	})
+	
+</script>

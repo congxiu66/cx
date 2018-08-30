@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>computed 计算“属性”不是方法 </title>
+		<script src="js/vue2.0.js"></script>
+	</head>
+	<body>
+		<!-- 1、方法不会有缓存，computed会根据依赖(归vue管理的数据，可以响应式变化的)的属性进行缓存-->
+		<!--2、两部分组成有get 和set （不能只写set）一般情况下，通过js赋值影响其他人或者表单元素设置值的时候会调用set方法-->
+		<div id="app">
+			全选
+			<input type="checkbox" v-model="checkAll"/><br>
+			<input type="checkbox" v-for="product in products" v-model="product.isSelected"/>
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#app',
+		data: {
+			products: [{isSelected:true}, {isSelected: true}]
+		},
+		computed: {
+			checkAll: {
+				get() { //返回什么结果 就会赋予给checkAll属性
+					return this.products.every(item=>item.isSelected)
+				},
+				set( val ) { //val是给checkAll 赋予值的时候
+					this.products.forEach(item=>item.isSelected = val)
+				}
+			}
+			
+			
+		}
+	
+	})
+</script>

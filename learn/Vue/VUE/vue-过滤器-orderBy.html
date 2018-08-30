@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue过滤器</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<ul id = "box">
+			<!--orderBy 1 正序 -1倒序-->
+			<input type="text" v-model = 'a' />
+			<!--v-for="val in arr | orderBy  'a' " 查询出包含字母a的    filterBy过滤数据-->
+			<li v-for="val in arr | orderBy  a " >
+				{{val}}
+			</li>
+		</ul>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		data: {
+			arr: ["width" ,"height","background", "orage"],
+			a: ''
+		},
+		methods: {
+			
+		}
+	}).$mount("#box")
+</script>

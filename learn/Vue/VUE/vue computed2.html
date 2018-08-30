@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue computed</title>
+		<script src="js/vue2.0.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="a" />
+			{{ msg }}
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#app',
+		data: {
+			a: ''
+		},
+		computed: { //computed 默认调用get 方法 必须用return computed 不支持异步
+			msg(){
+				/*setTimeout(()=>{
+					if(this.a.length < 3){
+						return '少了'
+					}
+					if(this.a.length > 6){
+						return '多了'
+					}
+					return ' ';
+				},500)*/ 
+				if(this.a.length < 3){
+						return '少了'
+					}
+					if(this.a.length > 6){
+						return '多了'
+					}
+					return ' ';
+			}
+		}
+	})
+</script>

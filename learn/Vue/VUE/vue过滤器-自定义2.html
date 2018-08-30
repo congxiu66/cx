@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue过滤器-自定义转换时间</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			{{a | date}}
+		</div>
+	</body>
+</html>
+<script>
+	/*自定义过滤器*/
+	Vue.filter("date",function(val){
+		var oDate = new Date(val);
+		var date = oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+'-'+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+		return date;
+	})
+	
+	new Vue({
+		el: '#box',
+		data: {
+			a: Date.now()
+		}
+	})
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue属性</title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<style type="text/css">
+			.red{
+				color: red;
+			}
+			.blue{
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<!--:class="[red,a] red是数据"-->
+			<p :class="[red,a]">内容</p>
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	new Vue({
+		el:'#box',
+		data:{
+			red:'red',//'red'指的class名
+			a:'blue'
+			
+		},
+		methods:{
+		}
+	})
+</script>

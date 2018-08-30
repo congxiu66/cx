@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue属性</title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<!--属性v-bind:src, 简写 :src-->
+			<img v-bind:src="url" :width="w" v-bind:title="a"/>
+			<br />
+			<img :src="url"/>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	new Vue({
+		el:'#box',
+		data:{
+			url:"http://img3.myhsw.cn/2017-07-03/3aqcayyk.jpeg",
+			w:'200px',
+			a:"这是一张美丽的图片"
+			
+		},
+		methods:{
+		}
+	})
+</script>

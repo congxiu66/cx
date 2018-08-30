@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue生命周期</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			{{msg}}
+		</div>
+		<script type="text/javascript">
+			/*创建实例*/
+			var vm = new Vue({
+				el: "#box",
+				data: {
+					msg: 'well'
+				},
+				created: function(){
+					alert("实例已经创建")
+				},
+				beforeCompile: function(){
+					alert("编译之前")
+				},
+				compiled:function(){
+					alert("编译之后")
+				},
+				ready: function(){
+					alert("插入文档中")
+				},
+				beforeDestroy: function(){
+					alert("销毁之前")
+				},
+				destroyed: function(){
+					alert("销毁之后")
+					
+				}
+			});
+			
+			document.onclick = function(){
+				/*对实例进行销毁*/
+				vm.$destroy()
+			}
+		</script>
+	</body>
+</html>
+<!--钩子函数：
+	created              ->实例已经创建
+	beforeCompile        ->编译之前
+	compiled             ->编译之后
+	ready                ->插入到文档中
+	
+	beforeDestroy        ->销毁之前
+	destroyed            ->销毁之后
+-->

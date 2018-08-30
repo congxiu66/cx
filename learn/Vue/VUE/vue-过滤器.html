@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue过滤器</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id='box' >
+			<!--{{字符串}}也能输出-->
+			<!--{{"lalal"}}-->
+			<!--uppercase转成大写-->
+			{{a | uppercase}}
+			<hr />
+			<!--lowercase转成小写   capitalize首字母大写-->
+			{{'WELCOME' | lowercase | capitalize}}
+			<hr />
+			<!--转成人民币 空格 参数（￥ rmb）-->
+			{{12|currency "rmb"}}
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#box',
+		data:{
+			a:'welcome'
+		}
+	})
+</script>

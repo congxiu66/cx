@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue交互</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/vue-resource.js" ></script>
+	</head>
+	<body>
+		<input type="button"  value="按钮" @click="get()"/>
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){
+		/*var vm = new Vue({
+			el:"body",
+			data:{
+				
+			},
+			methods:{
+				get:function(){
+					this.$http.get('a.txt').then(function(res){
+						//请求成功状态码200
+						alert(res.data)
+					},function(res){
+						//status状态码404
+						alert(res.status)
+					})
+				}
+			}
+		})*/
+		var data={a:1}
+		var vm = new Vue({
+			data:data
+		})
+		vm.a === data.a
+		data.a =3
+		console.log(vm.a)
+	}
+</script>

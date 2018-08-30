@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>select</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<select v-model="a">
+				<option value="" disabled>请选择</option>
+				<option value="2">你好</option>
+				<option value="3">我好</option>
+			</select> {{ a }}
+			<input type="radio"  v-model="gender" value="男" />男
+			<input type="radio"  v-model="gender" value="女" />女
+			{{ gender }}
+		</div>
+	</body>
+</html>
+<script>
+	var vm = new Vue({
+		el: "#app",
+		data: {
+			a: "",
+			gender: ""
+		}
+	})
+	/* v-cloak 解决闪烁（块）问题 使用v-cloak  要加样式*/
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>输入框添加删除</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="val"  @keyup.enter="add"/>
+			<ul>
+				<li v-for="(a,index) in arr">{{ index }}--{{ a }}<button @click="remove(index)">删除</button></li>
+			</ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#app',
+		data: {
+			val:'',
+			arr:[]
+		},
+		methods: {
+			add(){
+				this.arr.unshift(this.val);
+				this.val='';
+			},
+			remove(i){
+				console.log(i);
+				this.arr = this.arr.filter((item,index) => index !== i)
+			}
+		},
+		created: function(){ //页面一加载就执行
+			//alert(1)
+		},
+		computed: function(){
+			
+		}
+	})
+</script>

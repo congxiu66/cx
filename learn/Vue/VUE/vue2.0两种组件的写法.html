@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue2.0</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<!--<template id='aaa'> 
+			<div>
+				<h1>我是组件一</h1>
+				<strong>我是小冰</strong>
+			</div>
+		</template>-->
+		<div id="box">
+			<com-a></com-a>
+		</div>
+	</body>
+</html>
+<script>
+	/*var A = {
+		template: '#aaa'
+	}
+	var vm = new Vue({
+		el: '#box',
+		components: {
+			'com-a': A
+		}
+	})*/
+//	var A = {
+//		template: '<div><h1>我是组件二</h1><span>你好.小魔女</span></div>'
+//	}
+	var vm = new Vue({
+		el: '#box',
+		components: {
+			'com-a': {
+				template: '<div><h1>我是组件二</h1><span>你好.小魔女</span></div>'
+			}
+		}
+	})
+</script>

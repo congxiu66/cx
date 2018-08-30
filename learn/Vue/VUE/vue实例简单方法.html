@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue实例简单方法</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<!--moustache  小胡子语法  可以放赋值 取值 三元-->
+			<!--{{ a = 3 }}-->
+			<!--{{a?2:0}}-->
+			<!--{{ a }}-->
+			<!--网速慢，容易出现大括号 解决方法 v-text-->
+			<!--<div v-text="a"></div>-->
+			<!--<span v-text="a"></span>-->
+			
+			<input type="text" v-model="a"/>
+			{{a}}
+			<!--v-once 只绑定一次 上数据再次变化 也不导致页面刷新-->
+			<div v-once>
+				{{a}}
+			</div>
+			<div v-html="p"></div>
+			
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({ //vm == viewModel
+		aa: 11,//自定义属性
+		show: function(){
+			alert(1)
+		},
+		//el: "#box",
+		data: { //data中数据会被vm所代理
+			a: 1 ,//可以通过vm.a取到相应的内容
+			p:'<h3>nihao</h3>'
+			
+		}
+	}).$mount("#box")
+	//console.log(vm.$el);
+	//console.log(vm.$data.a);
+	//vm.$mount("#box");//手动挂载vue程序
+	
+	//获取自定义属性
+	vm.$options.show();
+	console.log(vm.$options.aa)
+	
+	
+	
+	/*------------------------------------------*/
+	//JS基本数据类型 null undefined Number String Boolean 
+	//JS复杂数据类型 Object function(){}
+	//Symbol(es6)
+</script>

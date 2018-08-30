@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue2.0路由嵌套2</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+		<script type="text/javascript" src="js/vue-router.js" ></script>
+		<style type="text/css">
+			.router-link-active{
+				font-size:18px;
+				color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+				<input type="button" value="添加一个路由" @click="push"/>
+				<input type="button" value="替换一个路由" @click="replace"/>
+			<div>
+				<!--组件-->
+				<router-link to="/home">主页</router-link>
+				<router-link to="/user">用户</router-link>
+			</div>
+			<div>
+				<transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
+					<router-view></router-view>
+				</transition>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	
+	/*组件*/
+	var Home = {
+		template: '<h3>我是主页</h3>'
+	}
+	var User = {
+		template: '<div><h3>我是用户信息</h3><ul><li><router-link to="/user/strive/age/10">Strive</router-link></li><li><router-link to="/user/blue/age/10">Blue</router-link></li><li><router-link to="/user/eric/age/10">Eric</router-link></li></ul><div><router-view></router-view></div></div>'
+	}
+	var UserDetail = {
+		template: '<div>{{$route.params}}</div>'
+	}
+	/*配置路由 routes 变量名不可以写错*/
+	const routes = [
+		{ path:'/home', component: Home },
+		{ 
+			path:'/user', 
+			component: User,
+			children: [//核心
+				{path: ':username/age/:age', component: UserDetail }
+			]
+			
+		},
+		/*重定向*/
+		{ path:'*', redirect: 'home'}
+	];
+	/*配置路由实例*/
+	const router = new VueRouter({
+		/*路由名字*/
+		routes
+	})
+	/*最后挂在vue上*/
+	var vm = new Vue({
+		router,
+		methods: {
+			push(){
+				/*直接添加一个路由，变现切换路由本质往历史记录里面添加一个，*/
+				router.push({path:'home'})
+			},
+			replace(){
+				router.push({path:'user'})
+			}
+		}
+	}).$mount('#box');
+	alert
+</script>

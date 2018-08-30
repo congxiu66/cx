@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue2.0父子组件修改子组件</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<!--{{msg}}-->
+			<!--组件标签-->
+			<Child_one  :msg="giveData"></Child_one>
+		</div>
+		<!--组件内容-->
+		<template id="child">
+			<div>
+				<h3>我是子组件</h3>
+				<input type="button" name="" id="" value="按钮" @click="change"/>
+				{{b}}
+			</div>
+		</template>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#box',
+		data: {
+			giveData: {
+				a: '我是父组件的数据'
+			}
+		},
+		components: {
+			/*组件标签*/
+			Child_one: {
+				data(){
+					return {
+						b: ''
+					}
+				},
+				props: ['msg'],
+				template: '#child',
+				mounted(){
+					this.b = this.msg.a
+				},
+				/*组件的方法写在组件里边 不然没法调用*/
+				methods:{
+					change: function(){
+						this.b = '被改变了'
+					}
+				}
+			}
+		}
+		
+	})
+</script>

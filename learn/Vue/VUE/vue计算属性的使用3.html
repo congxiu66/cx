@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue计算属性的使用</title>
+		<script src="js/vue2.0.js"></script>
+	</head>
+	<body>
+		<div id="box">
+		a >= {{a}}
+			<br>
+		b >= {{b}}
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var  vm = new Vue({
+			el: '#box',
+			data: {
+				a: 1
+			},
+			computed: {
+				b: {
+					get: function(){
+						return this.a + 2;
+					},
+					set: function(val){
+						//alert(val)
+						this.a = val
+					}
+				}
+			}
+	});
+	document.onclick = function(){
+		vm.b = 12;
+		console.log($el)
+	}
+</script>

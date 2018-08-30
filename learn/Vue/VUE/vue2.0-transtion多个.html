@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue2.0动画</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+		<style type="text/css">
+			p{
+				width: 200px;
+				height: 200px;
+				background: red;
+				margin: 0 auto;
+				margin-bottom: 20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" v-model="a"/>
+			<transition-group enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+				<p v-show="a" class="animated" v-for="(val,index) in lists" :key="index">
+					{{val}}
+				</p>
+			</transition-group>
+		</div>
+	</body>
+</html>
+<script>
+	var vm = new Vue({
+		el:'#box',
+		data: {
+			a: '',
+			list: ['apple','banana','pear','water']
+		},
+		computed: {
+			lists: function(){
+				var arr = [];
+				this.list.forEach(function(val){
+					//console.log(val.indexOf(this.a))	
+					if(val.indexOf(this.a) != -1){ //indexOf()1、对大小写敏感2、如果的检索的字符串值没有出现，则返回-1，
+						arr.push(val)
+					}
+				}.bind(this))
+				return arr;
+			}
+		}
+	})
+</script>

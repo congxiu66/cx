@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue事件</title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id='box'>
+			<!--点击事件v-on:click="show()" 简写@click="show()"-->
+			
+			<!--<input type="button"  value="点我啊" @click="show"/>-->
+			<input type="button"  value="点我啊" @click="show"/>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#box',
+		data:{
+			a:1
+		},
+		//函数方法
+		methods:{// methods和data中的数据会全部放到vm上，而且名字不能冲突，冲突会报错，methods中的this指向的都是实例
+//			show:function(){
+//				alert(1)
+//			},
+			show(){
+				alert(this)
+			}
+			
+			
+		}
+	})
+</script>

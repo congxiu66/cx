@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue循环语句</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+		<style type="text/css">
+			/*防止闪烁*/
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<!--v-cloak 防止闪烁  防止看见花括号标记  比较大的段落 -->
+			<ul v-cloak>
+				
+				<template  v-for="(value, key, index) in intems">
+					<li>{{ index }}. {{ key }} : {{ value }}</li>
+				</template>
+				<li v-for="n in 10">
+					{{n}}
+				</li>
+				<li v-for="c in 'aaaa'">{{ c }}</li>
+				
+			</ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	new Vue({
+		el: "#box",
+		data: {
+			intems: {
+				name1: 'apple',
+				name2: 'aper',
+				name3: 'bananer'
+			}
+		}
+	})
+</script>

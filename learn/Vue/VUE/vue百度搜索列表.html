@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue百度列表</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/vue-resource.js" ></script>
+		<style type="text/css">
+			.gary{
+				background-color: #C0C0C0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" v-model = "t1" @keyup = "get($event)" @keydown.down = 'changDown()' @keyup.up.prevent="changUp()"/>
+			<ul>
+				<li v-for="value in myData" :class="{gary: $index == now}">
+					{{index}}
+					{{value}}
+				</li>
+			</ul>
+			<p v-show="myData.length == 0">暂无数据....</p>
+		</div>
+	</body>
+</html>
+<script>
+	window.onload = function(){
+		new Vue({
+			el: "#box",
+			data: {
+				myData: [],
+				t1: '',
+				now:-1
+			},
+			methods: {
+				get: function(ev){
+					if(ev.keCode == 38 || ev.keyCode == 40){
+						return;
+					}
+					if(ev.keyCode == 13){
+						window.open('https://www.baidu.com/s?wd='+this.t1)
+					}
+					this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+						wd: this.t1
+					},{
+						jsonp: 'cb'
+					}).then(function(res){
+						//alert(res.data);
+						this.myData = res.data.s
+						console.log(JSON.stringify(res.data))
+					},function(){
+						
+					});
+				},
+				changDown: function(){
+					//alert();
+					this.now++;
+					console.log(this.myData[this.now])
+					if(this.now == this.myData.length){
+						this.now = -1;
+					}
+					this.t1 = this.myData[this.now];
+				},
+				changUp: function(){
+					this.now--;
+					console.log(this.now)
+					if(this.now == -2){
+						this.now = this.myData.length-1;
+					}
+					this.t1 = this.myData[this.now];
+				}
+			}
+		})
+	}
+</script>

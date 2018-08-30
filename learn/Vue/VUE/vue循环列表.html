@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue循环列表</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell" v-for = 'item in items'>
+			    	{{item.message}}-{{item.data}}
+			    	
+			    	<!--<div class="like-right">
+			    		<div class="like-title">{{item.message}}</div>
+			    		<div class="like-price">{{item.didian}}</div><span class="cx-shu">{{item.date}}</span>
+			    		<div class="AddDelete">	
+							<span class="count" adValue = "-1">-</span>
+							<span class="adNum">1</span>
+							<span class="count" adValue = "1">+</span>
+						</div>
+			    	</div>-->
+			    </li>
+			</ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		data: {
+			items: [
+				{message: 'foor'},
+				{message: 'Bar'},
+				{data: '2017-3-23'},
+				{data: '2017-3-25'}
+			]
+		}
+	}).$mount('#box')
+</script>

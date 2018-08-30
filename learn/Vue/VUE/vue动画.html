@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>先引入bower包管理器</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#box>div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+			.fade-transition{
+				transition: 1s all ease;
+			}
+			.fade-enter{
+				opacity: 1;
+			}
+			.fade-leave{
+				opacity: 1;
+				transform: translateX(200px);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box" @click="toggle">
+			<input type="button"  value="按钮" />
+			<div v-show = "bSign" transition = "fade">
+				
+			</div>
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		data: {
+			bSign: true
+		},
+		methods: {
+			toggle(){
+				this.bSign = !this.bSign;
+			}
+		}
+	}).$mount('#box')
+		
+	
+</script>

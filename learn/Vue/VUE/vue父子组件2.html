@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue父子组件2</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<!--vue默认情况下，子组件无法访问父组件的数据-->
+			<aaa></aaa>
+			
+		</div>
+		<template id="aaa">
+			<span>我是父级</span>
+			<input type="button" value="按钮" />
+			<bbb></bbb>
+		</template>
+		<template id="bbb">
+			<h3>子组件-</h3>
+			<input type="button"  value="send" @click="send"/>
+		</template>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#box',
+		data:{
+			a: 'aaa'
+		},
+		components: {
+			'aaa': {
+				data(){
+					return{
+						msg2: '我是父组件的数据',
+						msg: 111
+					}
+				},
+				template: '#aaa',
+				components: {
+					'bbb': {
+						data(){
+							return{
+								a: '我是子组件的数据'
+							}
+						},
+						template: '#box',
+						methods: {
+							send(){
+								this.$emit('child-msg',this.a);
+							}
+						}
+					}
+				}
+			}
+		}
+	})
+</script>

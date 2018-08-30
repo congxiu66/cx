@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue属性</title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<style type="text/css">
+			.red{
+				color: red;
+			}
+			.blue{
+				background: pink;
+			}
+			.add-class {
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<!--:class="{red:true,blue:true}"red是class名 通过true和false来判断显示和不显示 true和false也可以是数据-->
+			<p :class="{red:a,blue:b}">内容</p>
+			<p :class="{ blue:a, 'add-class': 6 == 6 }">啦啦啦</p>
+			<button :style="{ 'color': endcode == '投票'?'pink':'#333' }"  @click="vote">{{ endcode }} </button>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	new Vue({
+		el:'#box',
+		data:{
+			a:true,
+			b:false,
+			endcode:'投票'
+		},
+		methods:{
+			vote:function(){
+				this.endcode = '已投票';
+				if(this.endcode == '已投票') return;
+			}
+		}
+	})
+</script>

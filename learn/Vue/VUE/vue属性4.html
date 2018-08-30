@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue属性</title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<!--<p :style="[a,c]">内容</p>-->
+			<p :style="a">这是</p>
+			<div v-html="message">
+				
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	new Vue({
+		el:'#box',
+		data:{
+			/*a:{color:'red'},*/
+			/*驼峰写法*/
+			/*c:{backgroundColor:'pink'}*/
+			a:{
+				color:'red',
+				backgroundColor:'pink'
+			},
+			message:'<h1>今天是17年7月5号</h1>'
+		},
+		methods:{
+		}
+	})
+</script>

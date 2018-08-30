@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue交互</title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/vue-resource.js" ></script>
+	</head>
+	<body>
+		<input type="button"  value="按钮"  @click="get()"/>
+	</body>
+</html>
+<script type="text/javascript">
+	function get(){
+		alert(1)
+	}
+	window.onload = function(){
+		/*var vm = new Vue({
+			el:"body",
+			data:{
+			},
+			methods:{
+				get:function(){
+					this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+						wd:'a'
+					},{
+						jsonp:'cb'
+					}).then(function(res){;
+						//请求成功状态码200
+						alert(res.data.s)
+						console.log(JSON.stringify(res.data))
+					},function(res){
+						//status状态码404
+						alert(res.status)
+					})
+				}
+			}
+		})*/
+	/*	function get(){
+			alert(1)
+		}*/
+		
+	}
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue实例简单方法</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="添加" @click="add" />
+			<ul>
+				<li v-for = "val in arr">{{val}}</li>
+			</ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		data: {
+			arr: ["apple",'pear','orange']
+		},
+		methods: {
+			add: function(){
+				this.arr.push("tomato")
+			}
+		}
+	}).$mount("#box")
+	
+</script>

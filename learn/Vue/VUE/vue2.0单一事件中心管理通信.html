@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue单一事件中心管理管理通信</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			<div>
+				<com_a></com_a>
+				<com_b></com_b>
+				<com_c></com_c>
+			</div>
+		</div>
+		
+	</body>
+</html>
+<script>
+	var A = {
+		template: '<h3>我是A组件</h3>'
+	}
+	var B = {
+		template: '<h3>我是B组件</h3>'
+	}
+	var C = {
+		template: '<h3>我是C组件</h3>'
+	}
+	new Vue({
+		el: '#box',
+		components: {
+			'com_a': A,
+			'com_b': B,
+			'com_c': C,
+		}
+	})
+</script>

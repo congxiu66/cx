@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue过滤器-自定义</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="box">
+			{{a | toDou('12','5')}}
+		</div>
+	</body>
+</html>
+<script>
+	new Vue({
+		el: '#box',
+		data: {
+			a: 2
+		},
+		filters: {
+			/*过滤器传参*/
+			toDou:function(vlaue,a,b){
+				alert(a+','+b)
+				return vlaue<10?'0'+vlaue:''+vlaue;
+			}
+		}
+	})
+	/*vue2.0内置过滤器全部删除了*/
+</script>

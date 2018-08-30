@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>循环列表2</title>
+		<script type="text/javascript" src="js/vue2.0.js" ></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="(item, index) in items">
+					{{index+1}}.{{ item.name }}
+					<ul>
+						<li v-for="(item1, childIndex) in item.color ">{{index+1}}.{{ childIndex+1 }}{{ item1 }}</li>
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#app',
+		data: {
+			items: [{name: '香蕉',color:['green','yellow']},
+			{name: '苹果',color:['red','green','yellow']},
+			{name: '西瓜',color:['pink']}]
+		}
+	})
+</script>

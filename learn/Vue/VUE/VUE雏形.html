@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>vue雏形</title>
+		<script src="js/jQuery.js"></script>
+		<script src="js/vue.js"></script>
+		<style type="text/css">
+			.box01{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<!--
+				常用指令v-model
+			数据双向绑定-->
+			{{msg}}<br />
+			<input type="text" v-model ='msg' /><br />
+			{{msg2}}<br/>
+			{{msg3}}<br/>
+			
+			{{arr}}
+			{{json}}
+			<!--循环-->
+			<ul v-for ="value in arr">
+				<li>{{value}}</li>
+			</ul>
+			<ul>
+				<li v-for = 'item in json'>
+					{{item}}
+				</li>
+			</ul>
+			<hr />
+			<ul>
+				<li v-for = '(k,v) in json'>
+					{{k}} {{v}} 
+				</li>
+			</ul>
+			<hr />
+			<!--点击事件-->
+			<!--<input type="button" value="按钮" v-on:click = 'show()' />-->
+			<input type="button" value="按钮" v-on:click = 'b=false' />
+			<!--显示隐藏 v-show = "true/false"-->
+			<div class="box01" v-show = "b">
+				
+			</div>
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){
+		var c = new Vue({
+			el:'.box',
+			data:{//数据
+				msg:'welcome vue',
+				msg2:12,
+				msg3:true,
+				arr:['apple','banana','orange','pear'],
+				json:{a:'apple',b:'banana',c:'orange'},
+				a:false,
+				b:true
+			},
+			/*方法*/
+			methods:{
+				show:function(){
+//					alert(this.arr);
+					this.arr.push('tomato');
+				}
+			}
+		});
+	};
+</script>

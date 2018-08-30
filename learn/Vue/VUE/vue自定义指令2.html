@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue自定义指令</title>
+		<script src="js/vue2.0.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<span v-red="{ color: 'pink', text: '啦啦啦'}"></span>			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	Vue.directive('red',function(el, binding){
+		el.innerHTML = binding.value.text;
+		el.style.backgroundColor = binding.value.color
+	})
+	var vm = new Vue({
+		el: "#box",
+	})
+</script>
